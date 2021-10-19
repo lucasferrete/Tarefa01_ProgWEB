@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - Tarefa 01</title>
+</head>
+<body>
+
+    <p>Crie uma classe chamada "FuncionarioComissionado" com ES6, que herdará os métodos da
+        classe "Funcionario". A classe "Funcionario" deve ter os seguintes métodos:
+        constructor(nome, numCTPS, salario) e mostrarDados() para retornar todos os dados de um
+        funcionário. A classe "FuncionarioComissionado" deve ter os seguintes métodos:
+        constructor(nome, numCTPS, salario, venda, comissao) e mostrarDados() para retornar todos
+        os dados de um funcionário comissionado. Em seguida, crie um objeto de cada uma das classes
+        e mostre os respectivos dados no browser.</p>
+
+    <script>
+        class Funcionario {
+            constructor(nome, numCTPS, salario) {
+                this.nome = nome;
+                this.numCTPS = numCTPS;
+                this.salario = salario;
+            }
+            mostrarDados() {
+                return '<br>Dados do funcionário:<br> Nome: ' + this.nome + '<br>Número CTPS: ' + this.numCTPS + '<br>Salário: ' + this.salario + '<br>';
+            }
+        }
+
+        class FuncionarioComissionado extends Funcionario {
+            constructor(nome, numCTPS, salario, venda, comissao) {
+                super(nome, numCTPS, salario);
+                this.venda = venda;
+                this.comissao = comissao;
+            }
+
+            mostrar() {
+                return this.mostrarDados() + 'Venda: ' + this.venda + '<br>Comissão: ' + this.comissao;
+            }
+        }
+
+
+        funcionario = new Funcionario("Aimar Rodrigues", "36786-7", "3.900");
+        document.write(funcionario.mostrarDados());
+
+        funcionarioComissionado = new FuncionarioComissionado("Rafaela Freitas", "78443-3", "4.700", "25", "5%");
+        document.write(funcionarioComissionado.mostrar());
+
+    </script>
+</body>
+</html>
